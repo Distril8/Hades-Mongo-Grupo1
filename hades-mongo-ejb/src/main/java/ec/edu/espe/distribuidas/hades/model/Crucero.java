@@ -1,0 +1,84 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ec.edu.espe.distribuidas.hades.model;
+
+import ec.edu.espe.distribuidas.hades.enums.TipoCruceroEnum;
+import ec.edu.espe.distribuidas.nosql.mongo.BaseEntity;
+import java.math.BigDecimal;
+import org.mongodb.morphia.annotations.Entity;
+
+/**
+ *
+ * @author hendrix
+ */
+@Entity(noClassnameStored = true, value = "crucero")
+public class Crucero extends BaseEntity {
+
+    private String registro;
+    private String nombre;
+    private TipoCruceroEnum tipo;
+    private BigDecimal capacidad;
+
+    public Crucero() {
+    }
+
+    public String getRegistro() {
+        return registro;
+    }
+
+    public void setRegistro(String registro) {
+        this.registro = registro;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public TipoCruceroEnum getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoCruceroEnum tipo) {
+        this.tipo = tipo;
+    }
+
+    public BigDecimal getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(BigDecimal capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (super.id != null ? super.id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Crucero)) {
+            return false;
+        }
+        Crucero other = (Crucero) object;
+        if ((super.id == null && other.id != null) || (super.id != null && !super.id.equals(super.id))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "ec.edu.espe.distribuidas.hades.model.Crucero[ id=" + super.id.toHexString() + " ]";
+    }
+}
