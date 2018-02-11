@@ -27,13 +27,18 @@
                     </p:column>
                 </p:dataTable>
                 <p:commandButton value="Agregar" actionListener="#{clienteBean.agregar()}" update="@form"/>
-                <p:panel header="Registrar cliente" rendered="#{clienteBean.habilitaForm}">
+                <p:commandButton value="Modificar" actionListener="#{clienteBean.modificar()}" update="@form" disabled="#{clienteBean.clienteSel eq null}"/>
+                <p:panel header="#{clienteBean.titulo}cliente" rendered="#{clienteBean.habilitaForm}">
                     <p:panelGrid columns="3">
                         <p:outputLabel for="identificacion" value="Identificaci&#243;n" />
-                        <p:inputText id="identificacion" value="#{clienteBean.cliente.identificacion}" disabled="#{tipoAlimentacionBean.enModificar}" required="true" requiredMessage="Debe ingresar el codigo"/>
+                        <p:inputText id="identificacion" value="#{clienteBean.cliente.identificacion}" disabled="#{clienteBean.enModificar}"  requiredMessage="Debe ingresar el codigo"/>
                         <p:message for="identificacion" />
                         <p:outputLabel for="tipoIdentificacion" value="Tipo Identificaci&#243;n" />
-                        <p:inputText id="tipoIdentificacion" value="#{clienteBean.cliente.tipoIdentificacion}"  required="true" requiredMessage="Debe ingresara la descripcion"/>
+                        <p:selectOneMenu id="tipoIdentificacion" value="#{clienteBean.cliente.tipoIdentificacion}" disabled="#{clienteBean.enModificar}" style="width:175px">
+                            <f:selectItem itemLabel="Seleccionar uno" itemValue="" />
+                            <f:selectItem itemLabel="Cedula" itemValue="CED" />
+                            <f:selectItem itemLabel="RUC" itemValue="RUC" />
+                        </p:selectOneMenu>
                         <p:message for="tipoIdentificacion" />
                         <p:outputLabel for="nombre" value="Nombre" />
                         <p:inputText id="nombre" value="#{clienteBean.cliente.nombre}"  required="true" requiredMessage="Debe ingresara la descripcion"/>

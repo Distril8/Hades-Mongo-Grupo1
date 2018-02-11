@@ -46,6 +46,8 @@ public class MenuService {
     }
 
     public void modificar(Menu menu) {
+        Menu aux = this.menuDao.findOne("codigo", menu.getCodigo());
+        menu.setId(aux.getId());
         this.menuDao.save(menu);
     }
 

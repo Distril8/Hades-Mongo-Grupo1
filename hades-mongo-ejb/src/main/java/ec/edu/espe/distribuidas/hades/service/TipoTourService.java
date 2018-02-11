@@ -46,7 +46,10 @@ public class TipoTourService {
     }
 
     public void modificar(TipoTour tipoTour) {
+        TipoTour aux = this.tipoTourDao.findOne("codigo", tipoTour.getCodigo());
+        tipoTour.setId(aux.getId());
         this.tipoTourDao.save(tipoTour);
+        
     }
 
     public void eliminar(String codigo) {

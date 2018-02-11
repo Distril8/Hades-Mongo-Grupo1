@@ -20,6 +20,7 @@ C:\Users\DAVID\Documents\GitHub\hades-mongo\hades-mongo-ejb\src\main\java\ec\edu
 C:\Users\DAVID\Documents\GitHub\hades-mongo\hades-mongo-ejb\src\main\java\ec\edu\espe\distribuidas\hades\enums\TipoValorEnum.java
 C:\Users\DAVID\Documents\GitHub\hades-mongo\hades-mongo-ejb\src\main\java\ec\edu\espe\distribuidas\hades\model\TipoAlimentacion.java
 C:\Users\DAVID\Documents\GitHub\hades-mongo\hades-mongo-ejb\src\main\java\ec\edu\espe\distribuidas\hades\dao\CruceroDAO.java
+C:\Users\DAVID\Documents\GitHub\hades-mongo\hades-mongo-ejb\src\main\java\ec\edu\espe\distribuidas\hades\service\CruceroService.java
 C:\Users\DAVID\Documents\GitHub\hades-mongo\hades-mongo-ejb\src\main\java\ec\edu\espe\distribuidas\hades\service\TipoValorService.java
 C:\Users\DAVID\Documents\GitHub\hades-mongo\hades-mongo-ejb\src\main\java\ec\edu\espe\distribuidas\hades\dao\TipoValorDAO.java
 C:\Users\DAVID\Documents\GitHub\hades-mongo\hades-mongo-ejb\src\main\java\ec\edu\espe\distribuidas\hades\model\Reserva.java

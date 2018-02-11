@@ -49,5 +49,9 @@ public class ValorReservaService {
         this.valorReservaDAO.save(valorReserva);
     }
 
+    public void eliminar(String codigo) {
+        ValorReserva valorReserva = this.valorReservaDAO.findOne("codigo", codigo);
+        this.valorReservaDAO.delete(valorReserva);
+    }
    
 }

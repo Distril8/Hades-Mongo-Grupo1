@@ -47,6 +47,8 @@ public class TipoAlimentacionService {
     }
 
     public void modificar(TipoAlimentacion tipoAlimentacion) {
+        TipoAlimentacion aux = this.tipoAlimentacionDao.findOne("codigo", tipoAlimentacion.getCodigo());
+        tipoAlimentacion.setId(aux.getId());
         this.tipoAlimentacionDao.save(tipoAlimentacion);
     }
 

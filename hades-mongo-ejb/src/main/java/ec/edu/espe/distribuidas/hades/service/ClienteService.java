@@ -30,7 +30,6 @@ public class ClienteService {
 
     @PostConstruct
     public void init() {
-
         this.clienteFacade = new ClienteDAO(Cliente.class, mp.context());
     }
 
@@ -47,6 +46,8 @@ public class ClienteService {
     }
 
     public void modificar(Cliente cliente) {
+        Cliente aux = this.clienteFacade.findOne("identificacion", cliente.getIdentificacion());
+        cliente.setId(aux.getId());
         this.clienteFacade.save(cliente);
     }
 

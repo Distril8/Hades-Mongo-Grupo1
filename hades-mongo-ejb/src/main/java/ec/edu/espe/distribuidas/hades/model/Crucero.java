@@ -9,6 +9,8 @@ import ec.edu.espe.distribuidas.hades.enums.TipoCruceroEnum;
 import ec.edu.espe.distribuidas.nosql.mongo.BaseEntity;
 import java.math.BigDecimal;
 import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.IndexOptions;
+import org.mongodb.morphia.annotations.Indexed;
 
 /**
  *
@@ -17,12 +19,26 @@ import org.mongodb.morphia.annotations.Entity;
 @Entity(noClassnameStored = true, value = "crucero")
 public class Crucero extends BaseEntity {
 
+    @Indexed(options = @IndexOptions(name = "crucero_codigoUIdx", unique = true))
+    private String codigo;
     private String registro;
     private String nombre;
     private TipoCruceroEnum tipo;
     private BigDecimal capacidad;
 
     public Crucero() {
+    }
+
+    public Crucero(String codCrucero) {
+        this.codigo = codCrucero;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getRegistro() {
@@ -56,11 +72,11 @@ public class Crucero extends BaseEntity {
     public void setCapacidad(BigDecimal capacidad) {
         this.capacidad = capacidad;
     }
-
-    @Override
+    
+     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (super.id != null ? super.id.hashCode() : 0);
+        hash += (codigo != null ? codigo.hashCode() : 0);
         return hash;
     }
 
@@ -71,7 +87,7 @@ public class Crucero extends BaseEntity {
             return false;
         }
         Crucero other = (Crucero) object;
-        if ((super.id == null && other.id != null) || (super.id != null && !super.id.equals(super.id))) {
+        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
             return false;
         }
         return true;
@@ -79,6 +95,8 @@ public class Crucero extends BaseEntity {
 
     @Override
     public String toString() {
-        return "ec.edu.espe.distribuidas.hades.model.Crucero[ id=" + super.id.toHexString() + " ]";
+        return "ec.edu.espe.distribuidas.hades.model.Crucero[ codCrucero=" + codigo + " ]";
     }
+
+   
 }

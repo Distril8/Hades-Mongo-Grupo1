@@ -46,6 +46,8 @@ public class TipoCamaroteService {
     }
 
     public void modificar(TipoCamarote tipoCamarote) {
+        TipoCamarote aux = this.tipoCamaroteFacade.findOne("codigo", tipoCamarote.getCodigo());
+        tipoCamarote.setId(aux.getId());
         this.tipoCamaroteFacade.save(tipoCamarote);
     }
 

@@ -46,6 +46,8 @@ public class TipoValorService {
     }
 
     public void modificar(TipoValor tipoValor) {
+        TipoValor aux = this.tipoValorDAO.findOne("codigo", tipoValor.getCodigo());
+        tipoValor.setId(aux.getId());
         this.tipoValorDAO.save(tipoValor);
     }
 

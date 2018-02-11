@@ -32,6 +32,10 @@ public class Cliente extends BaseEntity {
     public Cliente() {
     }
 
+    public Cliente(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
     public String getIdentificacion() {
         return identificacion;
     }
@@ -96,15 +100,10 @@ public class Cliente extends BaseEntity {
         this.tipoIdentificacion = tipoIdentificacion;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente{" + "identificacion=" + identificacion + ", tipoIdentificacion=" + tipoIdentificacion + ", nombre=" + nombre + ", apellido=" + apellido + ", pais=" + pais + ", direccion=" + direccion + ", telefono=" + telefono + ", correoElectronico=" + correoElectronico + '}';
-    }
-
-    @Override
+   @Override
     public int hashCode() {
         int hash = 0;
-        hash += (super.id != null ? super.id.hashCode() : 0);
+        hash += (identificacion != null ? identificacion.hashCode() : 0);
         return hash;
     }
 
@@ -115,9 +114,14 @@ public class Cliente extends BaseEntity {
             return false;
         }
         Cliente other = (Cliente) object;
-        if ((super.id == null && other.id != null) || (super.id != null && !super.id.equals(super.id))) {
+        if ((this.identificacion == null && other.identificacion != null) || (this.identificacion != null && !this.identificacion.equals(other.identificacion))) {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "ec.edu.espe.distribuidas.hades.model.Cliente[ identificacion=" + identificacion + " ]";
     }
 }
